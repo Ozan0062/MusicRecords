@@ -12,7 +12,7 @@
 <div id = "app">
 <h1>Music Records</h1>
 <h2>Search</h2>
-<form>
+
     <div class="form-group">
         <label for="artist">Artist</label>
         <input type="text" class="form-control" id="artist" v-model="artist" v-on:keyup.enter="filterByArtist(artist)">
@@ -26,20 +26,19 @@
         <label for="year">Year</label>
         <input type="text" class="form-control" id="year" v-model="year">
     </div>
-    <button type="button" class="btn btn-primary" v-on:click="search">Search</button>
+    
     <h1>Filtered Music Records List</h1>
     <ol id="recordList" v-if="musicRecords.length > 0">
         <li v-for="musicRecord in musicRecords">
             Id {{musicRecord.Id}}  : Artist {{musicRecord.artist}}
         </li>  
         </ol>
-
     
 
     <h1>Full Music Records List</h1>
 
-<ol id="recordList" v-if="musicRecords.length > 0">
-<li v-for="musicRecord in musicRecords">
+<ol id="recordList" v-if="allMusicRecords.length > 0">
+<li v-for="musicRecord in allMusicRecords">
     Id {{musicRecord.Id}}  : Artist {{musicRecord.artist}}
 </li>  
 </ol>  

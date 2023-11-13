@@ -5,7 +5,9 @@ Vue.createApp({
         return {
             allMusicRecords: [],
             musicRecords: [],
-            artist: null
+            artist: null,
+            year: null,
+            title: null
             
         }
     },
@@ -25,7 +27,7 @@ Vue.createApp({
         },
         filterByArtist(artist) {
             try {
-                this.musicRecords = this.allMusicRecords.filter((item) => item.artist === artist)
+                this.musicRecords = this.allMusicRecords.filter((item) => item.artist == artist)
                 console.log(this.artist)
             } catch (ex) {
                 alert(ex.message)
