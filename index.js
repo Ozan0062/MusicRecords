@@ -6,6 +6,7 @@ Vue.createApp({
             allMusicRecords: [],
             musicRecords: [],
             artist: null
+            
         }
     },
     async created() {
@@ -16,6 +17,7 @@ Vue.createApp({
             try {
                 const response = await axios.get(url)
                 this.allMusicRecords = await response.data
+                this.musicRecords = this.allMusicRecords
                 console.log(this.allMusicRecords)
             } catch (ex) {
                 alert(ex.message)

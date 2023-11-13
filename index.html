@@ -38,8 +38,8 @@
 
     <h1>Full Music Records List</h1>
 
-<ol id="recordList" v-if="allMusicRecords.length > 0">
-<li v-for="musicRecord in allMusicRecords">
+<ol id="recordList" v-if="musicRecords.length > 0">
+<li v-for="musicRecord in musicRecords">
     Id {{musicRecord.Id}}  : Artist {{musicRecord.artist}}
 </li>  
 </ol>  
