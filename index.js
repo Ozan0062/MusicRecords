@@ -4,6 +4,7 @@ Vue.createApp({
     data() {
         return {
             allMusicRecords: [],
+            musicRecords: [],
             artist: null
         }
     },
@@ -20,6 +21,14 @@ Vue.createApp({
                 alert(ex.message)
             }
         },
+        filterByArtist(artist) {
+            try {
+                this.musicRecords = this.allMusicRecords.filter((item) => item.artist === artist)
+                console.log(this.artist)
+            } catch (ex) {
+                alert(ex.message)
+            }
+        }
     }
     
 }).mount("#app") 
