@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,42 +9,59 @@
     <script src="https://unpkg.com/vue@next"></script>
     <title>Music Records</title>
 </head>
+
 <body>
-<div id = "app">
-<h1>Music Records</h1>
-<h2>Search</h2>
+    <div id="app">
+        <h1>Music Records</h1>
+        <h2>Search</h2>
 
-    <div class="form-group">
-        <label for="artist">Artist</label>
-        <input type="text" class="form-control" id="artist" v-model="artist" v-on:keyup.enter="filterByArtist(artist)">
-        <button v-on:click="filterByArtist(artist)">Search</button>
-    </div>
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" v-model="title">
-    </div>
-    <div class="form-group">
-        <label for="year">Year</label>
-        <input type="text" class="form-control" id="year" v-model="year">
-    </div>
-    
-    <h1>Filtered Music Records List</h1>
-    <ol id="recordList" v-if="musicRecords.length > 0">
-        <li v-for="musicRecord in musicRecords">
-            Id {{musicRecord.Id}}  : Artist {{musicRecord.artist}}
-        </li>  
-        </ol>
-    
+        <div class="form-group">
+            <label for="artist">Artist</label>
+            <input type="text" class="form-control" id="artist" v-model="artist"
+                v-on:keyup.enter="filterByArtist(artist)">
+            <button v-on:click="filterByArtist(artist)">Search</button>
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" v-model="title" v-on:keyup.enter="filterByTitle(title)">
+            <button v-on:click="filterByTitle(title)">Search</button>
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="number" class="form-control" id="year" v-model="publicationYear"
+                v-on:keyup.enter="filterByYear(publicationYear)">
+            <button v-on:click="filterByYear(publicationYear)">Search</button>
+        </div>
+        <h1>Create</h1>
+        <div class="form-group">
+            <input type="text" id="addArtist" class="form-control" v-model="addData.artist" placeholder="Artist">
+            <input type="text" id="addTitle" class="form-control" v-model="addData.title" placeholder="Title">
+            <input type="number" id="addYear" class="form-control" v-model="addData.publicationYear"placeholder="Year">
+            <input type="text" id="addDuration" class="form-control" v-model="addData.duration" placeholder="Duration">
+            <button v-on:click="addMusicRecords()">Add</button>
+        </div>    
 
-    <h1>Full Music Records List</h1>
 
-<ol id="recordList" v-if="allMusicRecords.length > 0">
-<li v-for="musicRecord in allMusicRecords">
-    Id {{musicRecord.Id}}  : Artist {{musicRecord.artist}}
-</li>  
-</ol>  
-</div>       
 
-<script src="index.js"></script>
+            <h1>Filtered Music Records List</h1>
+            <ol id="recordList" v-if="musicRecords.length > 0">
+                <li v-for="musicRecord in musicRecords">
+                    Id {{musicRecord.Id}} : Artist {{musicRecord.artist}} : Title {{musicRecord.title}} : Year
+                    {{musicRecord.publicationYear}}
+                </li>
+            </ol>
+
+
+            <h1>Full Music Records List</h1>
+
+            <ol id="recordList" v-if="allMusicRecords.length > 0">
+                <li v-for="musicRecord in allMusicRecords">
+                    Id {{musicRecord.Id}} : Artist {{musicRecord.artist}}
+                </li>
+            </ol>
+        </div>
+
+        <script src="index.js"></script>
 </body>
+
 </html>
