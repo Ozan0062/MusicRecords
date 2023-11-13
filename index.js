@@ -5,8 +5,9 @@ Vue.createApp({
         return {
             allMusicRecords: [],
             musicRecords: [],
-            artist: null
-            
+            artist: null,
+            title: null,
+            year: null
         }
     },
     async created() {
