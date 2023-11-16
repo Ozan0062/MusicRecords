@@ -6,16 +6,11 @@ Vue.createApp({
             allMusicRecords: [],
             musicRecords: [],
             artist: null,
-<<<<<<< HEAD
-            title: null,
-            year: null
-=======
             publicationYear: null,
             title: null,
             duration: null,
             addData: { artist: "", title: "", publicationYear: null, duration: null},
             
->>>>>>> ea4ee66d7491e56377b6335e9f5caf33c1d894cb
         }
     },
     async created() {
