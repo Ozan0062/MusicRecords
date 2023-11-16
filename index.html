@@ -8,6 +8,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <title>Music Records</title>
+
+    <style>
+        ul.no-bullets {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,27 +52,36 @@
             <input type="text" id="addDuration" class="form-control" v-model="addData.duration" placeholder="Duration">
             <button id="addMusicRecord" class="btn btn-danger" v-on:click="addMusicRecords()">Add</button>
             </div>
-        </div>    
-
+        </div>
+        
+        <h1>Delete</h1>
+        <div class="form-group col">
+               <div class="col-4">
+                <input type="number" id="deleteById" class="form-control" v-model="deleteById" placeholder="Id">
+                <button id="deleteMusicRecord" class="btn btn-danger" v-on:click="deleteMusicRecords(deleteById)">Delete</button>
+               </div>    
+        </div>
 
 
             <h1>Filtered Music Records List</h1>
-            <ol id="recordList" v-if="musicRecords.length > 0">
+            <ul class="no-bullets" id="recordList" v-if="musicRecords.length > 0">
                 <li v-for="musicRecord in musicRecords">
-                    Id {{musicRecord.Id}} : Artist {{musicRecord.artist}} : Title {{musicRecord.title}} : Year
+                    Id {{musicRecord.id}} : Artist {{musicRecord.artist}} : Title {{musicRecord.title}} : Year
                     {{musicRecord.publicationYear}}
                 </li>
-            </ol>
+            </ul>
 
 
             <h1>Full Music Records List</h1>
 
-            <ol id="recordList" v-if="allMusicRecords.length > 0">
+            <ul class="no-bullets" id="recordList" v-if="allMusicRecords.length > 0">
                 <li v-for="musicRecord in allMusicRecords">
-                    Id {{musicRecord.Id}} : Artist {{musicRecord.artist}}
+                    Id {{musicRecord.id}} : Artist {{musicRecord.artist}}
                 </li>
-            </ol>
+            </ul>
         </div>
+
+        
 
         <script src="index.js"></script>
 </body>

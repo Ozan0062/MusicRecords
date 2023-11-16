@@ -9,7 +9,9 @@ Vue.createApp({
             publicationYear: null,
             title: null,
             duration: null,
+            id: null,
             addData: { artist: "", title: "", publicationYear: null, duration: null},
+            deleteById: null
             
         }
     },
@@ -58,7 +60,15 @@ Vue.createApp({
             } catch (ex) {
                 alert(ex.message)
             }
-        }
+        },
+        async deleteMusicRecords(deleteById) {
+            try {
+                response = await axios.delete(baseUrl + "/" + deleteById)
+                this.getAll(baseUrl)
+            } catch (ex) {
+                alert(ex.message)
+            }
+        },
     }
     
 }).mount("#app") 
